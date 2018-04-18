@@ -10,12 +10,24 @@ function onReady(){
     console.log('jQuery is loaded');
     $.ajax({ // ajax is a method - trigger that fires off a request
         type: 'GET', //needs a type like on the server.js
-        url: '/all-quotes' //needs a location, must match server.js
+        url: 'quotes' //needs a location, must match server.js
     })
     .then(function(response){
-        console.log(response);
-    });
+        $('#randomQuote').text(response.quote);
+    })
+    allQuotes();
     onClick();
+}
+
+function allQuotes(){
+    console.log('Lets see some quotes');
+    $.ajax({
+        type: 'GET',
+        url: '/all-quotes'
+    })
+    .then(function(response){
+        $('#allQuotes').(response);
+    });
 }
 
 function onClick(){
