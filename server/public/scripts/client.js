@@ -15,4 +15,20 @@ function onReady(){
     .then(function(response){
         console.log(response);
     });
+    onClick();
+}
+
+function onClick(){
+$('#randomButton').on('click', clickHandler);
+}
+
+function clickHandler(){
+    console.log('the button works!');
+    $.ajax({
+        type: 'GET',
+        url: '/quotes'
+    })
+    .then(function(response){
+        $('#randomQuote').text(response.quote);
+    })
 }
