@@ -6,9 +6,10 @@ const PORT = 5000;
 app.use(express.static('server/server'));
 app.use(express.static('server/public'));
 
-app.get('/', (req, res) => {
-    res.send();
-});
+
+// app.get('/', (req, res) => {
+//     res.send();
+// });
 
 app.get('/all-quotes', (req, res) => {
     res.send(quotes_data);
