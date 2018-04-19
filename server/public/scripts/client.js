@@ -20,14 +20,16 @@ function onReady(){
 }
 
 function allQuotes(){
-    console.log('Lets see some quotes');
+    console.log('allquotes???');
     $.ajax({
         type: 'GET',
         url: '/all-quotes'
     })
-    .then(function(response){
-        $('#allQuotes').(response);
-    });
+        .then(function (response) {
+            for (let i=0; i<response.length; i++){
+                $('#allQuotes').append(`<li> ${response[i].quote} | ${response[i].author} </li>`);
+            }
+        });
 }
 
 function onClick(){
