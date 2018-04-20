@@ -38,6 +38,8 @@ function allQuotes(){
         url: '/all-quotes'
     })
         .then(function (response) {
+            console.log(response);
+            $('#allQuotes').empty();
             for (let i=0; i<response.length; i++){
                 $('#allQuotes').append(`<li> ${response[i].quote} | ${response[i].author} </li>`);
             }
@@ -46,7 +48,7 @@ function allQuotes(){
 
 function addNewQuote(){
     const newQuote = {
-        text: $('#textInput').val(),
+        quote: $('#textInput').val(),
         author: $('#authorInput').val()
     };
     console.log('New quote object', newQuote);
@@ -57,7 +59,7 @@ function addNewQuote(){
     })
     .then(function(response) {
         console.log(response);
-    // getAllQuotes();
+    allQuotes();
     })
 }
 
